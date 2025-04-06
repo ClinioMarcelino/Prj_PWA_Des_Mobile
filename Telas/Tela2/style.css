@@ -1,0 +1,101 @@
+:root {
+    --bg: #212121;
+    --card-bg: #2c2c2c;
+    --text: #ffffff;
+    --text-muted: #cccccc;
+    --accent: #888;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    height: 100%;
+    font-family: sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+  }
+  
+  .app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  /* Header */
+  .header {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background-color: var(--card-bg);
+  }
+  
+  .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+  .greeting {
+    flex: 1;
+    margin-left: 12px;
+    font-size: 1.1rem;
+  }
+  
+  .btn-eye {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  /* Card de grupo */
+  .card {
+    background-color: var(--card-bg);
+    margin: 16px;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  }
+  
+  .group-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+  }
+  
+  .amount {
+    font-weight: bold;
+  }
+  
+  /* Bottom Navigation */
+  .bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 12px 0;
+    background-color: var(--card-bg);
+    margin-top: auto;
+  }
+  
+  .nav-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .nav-btn.central {
+    background-color: #ccc;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-16px);
+  }
+  

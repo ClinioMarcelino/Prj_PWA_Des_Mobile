@@ -1,0 +1,65 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #1e1e1e;
+    color: #ccc;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    text-align: center;
+    padding: 50px 30px;
+    width: 100%;
+  }
+  
+  .logo {
+    font-family: "Kaushan Script", cursive;
+    font-size: 3rem;
+    margin-bottom: 40px;
+  }
+  
+  .gray {
+    color: #aaa;
+  }
+  
+  .green {
+    color: #63d471;
+    font-size: 4rem;
+  }
+  
+  .google-btn {
+    gap: 10px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #2c2c2c;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 4px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .google-btn img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .google-btn:hover {
+    background-color: #3a3a3a;
+  }
+  
+  footer {
+    margin-top: 50px;
+    font-size: 0.9em;
+    color: #aaa;
+  }  

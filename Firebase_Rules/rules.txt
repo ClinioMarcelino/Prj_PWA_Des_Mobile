@@ -1,0 +1,57 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+
+    "users": {
+      "$userId": {
+        ".read": "auth != null && auth.uid === $userId",
+        ".write": "auth != null && auth.uid === $userId"
+      }
+    },
+
+    "groups": {
+      "$groupId": {
+        ".read": "auth != null && data.child('members').child(auth.uid).exists()",
+
+        // Somente o criador do grupo pode alterar os dados ou os membros
+        ".write": "auth != null && (
+          (!data.exists() && newData.child('members').child(auth.uid).exists()) ||
+          data.child('createdBy').val() === auth.uid
+        )",
+
+        "members": {
+          "$memberId": {
+            ".validate": "auth != null &&
+                          root.child('groups').child($groupId).child('createdBy').val() === auth.uid &&
+                          newData.hasChild('peso') &&
+                          newData.child('peso').isNumber() &&
+                          newData.child('peso').val() > 0"
+          }
+        }
+      }
+    },
+
+    "expenses": {
+      "$groupId": {
+        "$expenseId": {
+          // Todos os membros do grupo podem ler e escrever despesas
+          ".read": "auth != null &&
+                    root.child('groups').child($groupId).child('members').child(auth.uid).exists()",
+
+          ".write": "auth != null &&
+                     root.child('groups').child($groupId).child('members').child(auth.uid).exists()",
+
+          ".validate": "newData.hasChildren(['description', 'amount', 'currency', 'createdBy', 'timestamp']) &&
+                        newData.child('description').isString() &&
+                        newData.child('amount').isNumber() &&
+                        newData.child('amount').val() >= 0 &&
+                        newData.child('currency').isString() &&
+                        newData.child('currency').val().length === 3 &&
+                        newData.child('createdBy').val() === auth.uid &&
+                        newData.child('timestamp').isNumber()"
+        }
+      }
+    }
+  }
+}
